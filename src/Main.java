@@ -100,7 +100,7 @@ public class Main {
                     if (!resposta.equalsIgnoreCase("S")) {
                         break;
                     }
-                    scanner.nextLine(); // Consumir quebra de linha
+                    scanner.nextLine();
                 }
             } while (!filmeEncontrado);
     
@@ -109,7 +109,7 @@ public class Main {
             if (!resposta.equalsIgnoreCase("S")) {
                 break;
             }
-            scanner.nextLine(); // Consumir quebra de linha
+            scanner.nextLine();
         } while (true);
     }    
     
