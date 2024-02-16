@@ -57,8 +57,19 @@ public class Main {
         filme.setAtores(atores);
     }
 
-    public static void cadastrarDiretor(){
-
+    public static void cadastrarDiretor() { 
+        System.out.println("Cadastro de Diretor");
+        System.out.print("Nome: ");
+        String nome = scanner.nextLine(); 
+        nome = scanner.nextLine();
+        System.out.print("Área: ");
+        String area = scanner.nextLine();
+    
+        Diretor diretor = new Diretor(nome, area);
+    
+        System.out.println("Diretor cadastrado com sucesso:");
+        System.out.println("Nome: " + diretor.getNome());
+        System.out.println("Área: " + diretor.getArea());
     }
 
     public static void cadastrarAtor(){
