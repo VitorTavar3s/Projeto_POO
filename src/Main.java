@@ -67,19 +67,32 @@ public class Main {
             
             boolean filmeEncontrado;
             do {
-                filmeEncontrado = false; // Inicializa como falso
+                filmeEncontrado = false;
                 System.out.println("Digite o nome do filme que o diretor coordenou:");
                 String nomeFilme = scanner.nextLine();
     
+                //for (Filme filme : filmes) {
+                //    if (nomeFilme.equals(filme.getNome())) {
+                //        Diretor diretor = new Diretor(nomeDiretor, area);
+                //        filme.adicionarDiretor(diretor);
+                //        filmeEncontrado = true;
+                //        System.out.println("Diretor cadastrado com sucesso!");
+                //        break;
+                //    }
+                //}
+                
                 for (Filme filme : filmes) {
                     if (nomeFilme.equals(filme.getNome())) {
                         Diretor diretor = new Diretor(nomeDiretor, area);
-                        filme.adicionarDiretor(diretor);
+                        List<Diretor> novaListaDiretores = new ArrayList<>();
+                        novaListaDiretores.addAll(filme.getDiretores()); 
+                        novaListaDiretores.add(diretor);
+                        filme.setDiretores(novaListaDiretores);
                         filmeEncontrado = true;
                         System.out.println("Diretor cadastrado com sucesso!");
                         break;
                     }
-                }
+                } 
     
                 if (!filmeEncontrado) {
                     System.out.println("Filme não encontrado! Deseja tentar outro filme? (S/N):");

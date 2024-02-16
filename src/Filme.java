@@ -55,8 +55,13 @@ public class Filme {
     }
     
     //Adiciona um diretor à lista existente de diretores do filme - Confirmar
-    public void adicionarDiretor(Diretor diretor) {
-        diretores.add(diretor);
+    //public void adicionarDiretor(Diretor diretor) {
+    //    diretores.add(diretor);
+    //}
+
+    //// Método para definir a lista completa de diretores do filme
+    public void setDiretores(List<Diretor> diretores) {
+        this.diretores = diretores;
     }
 
 }
