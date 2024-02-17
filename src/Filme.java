@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Filme {
@@ -12,6 +13,8 @@ public class Filme {
         this.descricao = descricao;
         this.data_lancamento = data_lancamento;
         this.orcamento =  orcamento;
+        this.diretores = new ArrayList<>();
+        this.atores = new ArrayList<>();
     }
 
 

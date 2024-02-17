@@ -55,6 +55,7 @@ public class Main {
         Filme filme = new Filme(nome,descricao,data,orcamento);
         filmes.add(filme);
         filme.setAtores(atores);
+        System.out.println("Filme cadastrado com sucesso");
     }
 
     public static void cadastrarDiretor() {
@@ -156,6 +157,35 @@ public class Main {
     }
 
     public static void buscarFilme(){
+        scanner.nextLine(); // Limpa o buffer do scanner
 
+        System.out.println("Digite o nome do filme que deseja buscar:");
+        String nomeFilmeBusca = scanner.nextLine();
+
+        boolean filmeEncontrado = false;
+
+        for (Filme filme : filmes) {
+            if (nomeFilmeBusca.equalsIgnoreCase(filme.getNome())) {
+                filmeEncontrado = true;
+                System.out.println("Filme encontrado:");
+                System.out.println("Nome: " + filme.getNome());
+                System.out.println("Descrição: " + filme.getDescricao());
+                System.out.println("Data de lançamento: " + filme.getData_lancamento());
+                System.out.println("Orçamento: " + filme.getOrcamento());
+                System.out.println("Atores:");
+                for (Ator ator : filme.getAtores()) {
+                    System.out.println("- " + ator.nome);
+                }
+                System.out.println("Diretores:");
+                for (Diretor diretor : filme.getDiretores()) {
+                    System.out.println("- " + diretor.getNome());
+                }
+                break;
+            }
+        }
+
+        if (!filmeEncontrado) {
+            System.out.println("Filme não encontrado.");
+        }
     }
 }
