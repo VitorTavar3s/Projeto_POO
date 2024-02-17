@@ -57,9 +57,62 @@ public class Main {
         filme.setAtores(atores);
     }
 
-    public static void cadastrarDiretor(){
-
-    }
+    public static void cadastrarDiretor() {
+        scanner.nextLine();
+        do {
+            System.out.println("Informe o nome do Diretor:");
+            String nomeDiretor = scanner.nextLine();
+            System.out.println("Informe a área do Diretor:");
+            String area = scanner.nextLine();
+            
+            boolean filmeEncontrado;
+            do {
+                filmeEncontrado = false;
+                System.out.println("Digite o nome do filme que o diretor coordenou:");
+                String nomeFilme = scanner.nextLine();
+    
+                //for (Filme filme : filmes) {
+                //    if (nomeFilme.equals(filme.getNome())) {
+                //        Diretor diretor = new Diretor(nomeDiretor, area);
+                //        filme.adicionarDiretor(diretor);
+                //        filmeEncontrado = true;
+                //        System.out.println("Diretor cadastrado com sucesso!");
+                //        break;
+                //    }
+                //}
+                
+                for (Filme filme : filmes) {
+                    if (nomeFilme.equals(filme.getNome())) {
+                        Diretor diretor = new Diretor(nomeDiretor, area);
+                        List<Diretor> novaListaDiretores = new ArrayList<>();
+                        novaListaDiretores.addAll(filme.getDiretores()); 
+                        novaListaDiretores.add(diretor);
+                        filme.setDiretores(novaListaDiretores);
+                        filmeEncontrado = true;
+                        System.out.println("Diretor cadastrado com sucesso!");
+                        break;
+                    }
+                } 
+    
+                if (!filmeEncontrado) {
+                    System.out.println("Filme não encontrado! Deseja tentar outro filme? (S/N):");
+                    String resposta = scanner.next();
+                    if (!resposta.equalsIgnoreCase("S")) {
+                        break;
+                    }
+                    scanner.nextLine();
+                }
+            } while (!filmeEncontrado);
+    
+            System.out.println("Deseja adicionar outro diretor? (S/N):");
+            String resposta = scanner.next();
+            if (!resposta.equalsIgnoreCase("S")) {
+                break;
+            }
+            scanner.nextLine();
+        } while (true);
+    }    
+    
 
     public static void cadastrarAtor(){
             scanner.nextLine();
