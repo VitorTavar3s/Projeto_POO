@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52dd100f-cfbf-458a-ad21-ff56d8c447dd" name="Changes" comment="">
+    <list default="true" id="52dd100f-cfbf-458a-ad21-ff56d8c447dd" name="Changes" comment="implementando o metodo buscar filme e melhorando a sintaxe do codigo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Diretor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Diretor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,11 +82,33 @@
       <option name="presentableId" value="Default" />
       <updated>1707097526008</updated>
       <workItem from="1708194808506" duration="2026000" />
-      <workItem from="1708199512574" duration="2851000" />
+      <workItem from="1708199512574" duration="3473000" />
+      <workItem from="1708304317115" duration="2944000" />
     </task>
+    <task id="LOCAL-00001" summary="implementando o metodo buscar filme e melhorando a sintaxe do codigo">
+      <option name="closed" value="true" />
+      <created>1708202949873</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708202949873</updated>
+    </task>
+    <task id="LOCAL-00002" summary="implementando o metodo buscar filme e melhorando a sintaxe do codigo">
+      <option name="closed" value="true" />
+      <created>1708202961649</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708202961649</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implementando o metodo buscar filme e melhorando a sintaxe do codigo" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementando o metodo buscar filme e melhorando a sintaxe do codigo" />
   </component>
 </project>
