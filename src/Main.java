@@ -7,6 +7,7 @@ public class Main {
         static Scanner scanner = new Scanner(System.in);
         static List<Filme> filmes = new ArrayList<>();
         static List<Ator> atores = new ArrayList<>();
+        static List<Diretor> diretores = new ArrayList<>();
     public static void main(String[] args) {
         //Scanner scanner = new Scanner(System.in);
         //Filme filme = new Filme();
@@ -64,6 +65,8 @@ public class Main {
 
     public static void cadastrarDiretor() {
         scanner.nextLine();
+        //Lista dos filmes com Id
+        //
         do {
             System.out.println("Informe o nome do Diretor:");
             String nomeDiretor = scanner.nextLine();
@@ -83,23 +86,12 @@ public class Main {
                     System.out.println("Digite o nome do filme que o diretor coordenou:");
                     String nomeFilme = scanner.nextLine();
 
-                    //for (Filme filme : filmes) {
-                    //    if (nomeFilme.equals(filme.getNome())) {
-                    //        Diretor diretor = new Diretor(nomeDiretor, area);
-                    //        filme.adicionarDiretor(diretor);
-                    //        filmeEncontrado = true;
-                    //        System.out.println("Diretor cadastrado com sucesso!");
-                    //        break;
-                    //    }
-                    //}
-
                     for (Filme filme : filmes) {
                         if (nomeFilme.equals(filme.getNome())) {
                             Diretor diretor = new Diretor(nomeDiretor, area);
-                            List<Diretor> novaListaDiretores = new ArrayList<>();
-                            novaListaDiretores.addAll(filme.getDiretores());
-                            novaListaDiretores.add(diretor);
-                            filme.setDiretores(novaListaDiretores);
+                            diretores.addAll(filme.getDiretores());
+                            diretores.add(diretor);
+                            filme.setDiretores(diretores);
                             filmeEncontrado = true;
                             System.out.println("Diretor cadastrado com sucesso!");
                             break;
