@@ -19,7 +19,9 @@ public class Main {
             System.out.println("2 - Cadastrar Diretor");
             System.out.println("3 - Cadastrar Ator");
             System.out.println("4 - Buscar Filme");
-            System.out.println("5 - Sair");
+            System.out.println("5 - Buscar Diretor");
+            System.out.println("6 - Buscar Ator");
+            System.out.println("7 - Sair");
             System.out.println();
             opcao = scanner.nextInt();
 
@@ -28,10 +30,12 @@ public class Main {
                 case 2 -> cadastrarDiretor();
                 case 3 -> cadastrarAtor();
                 case 4 -> buscarFilme();
-                case 5 -> System.out.println("Saindo...");
+                case 5 -> buscarDiretor();
+                case 6 -> buscarAtor();
+                case 7 -> System.out.println("Saindo...");
                 default -> System.out.println("Digite uma opção válida!");
             }
-        } while (opcao != 5);
+        } while (opcao != 7);
 
 
     }
@@ -174,7 +178,7 @@ public class Main {
     }
 
     public static void buscarFilme(){
-        scanner.nextLine(); // Limpa o buffer do scanner
+        scanner.nextLine(); 
 
         System.out.println("Digite o nome do filme que deseja buscar:");
         String nomeFilmeBusca = scanner.nextLine();
@@ -206,6 +210,56 @@ public class Main {
         }
     }
 
-    //public void buscarDiretor(){}
-    //public void buscarAtor(){}
+    public static void buscarDiretor() {
+        if (diretores.isEmpty()) {
+            System.out.println("Nenhum diretor cadastrado.");
+            return;
+        }
+
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 -> Buscar diretor específico");
+        System.out.println("2 -> Exibir todos os diretores cadastrados");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+
+        switch (opcao) {
+            case 1:
+                System.out.println("Digite o nome do diretor que deseja buscar:");
+                String nomeDiretor = scanner.nextLine();
+                buscarDiretorEspecifico(nomeDiretor);
+                break;
+            case 2:
+                exibirTodosOsDiretores();
+                break;
+            default:
+                System.out.println("Opção inválida.");
+                break;
+        }
+    }
+
+    private static void buscarDiretorEspecifico(String nomeDiretor) {
+        boolean diretorEncontrado = false;
+        for (Diretor diretor : diretores) {
+            if (diretor.getNome().equalsIgnoreCase(nomeDiretor)) {
+                diretorEncontrado = true;
+                System.out.println("Diretor encontrado:");
+                System.out.println("Nome: " + diretor.getNome());
+                System.out.println("Área: " + diretor.getArea());
+                break;
+            }
+        }
+        if (!diretorEncontrado) {
+            System.out.println("Diretor não encontrado.");
+        }
+    }
+
+    private static void exibirTodosOsDiretores() {
+        System.out.println("Diretores cadastrados:");
+        for (Diretor diretor : diretores) {
+            System.out.println("Nome: " + diretor.getNome());
+            System.out.println("Área: " + diretor.getArea());
+            System.out.println();
+        }
+    }
+    public static void buscarAtor(){}
 }
