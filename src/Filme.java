@@ -3,12 +3,16 @@ import java.util.List;
 
 public class Filme {
 
+    private static long ultimoId = 0;
+
+    private Long id;
     private String nome,descricao,data_lancamento;
     private Double orcamento;
     private List<Ator> atores;
     private List<Diretor> diretores;
 
     Filme(String nome,String descricao,String data_lancamento,Double orcamento){
+        this.id = gerarNovoId();
         this.nome = nome;
         this.descricao = descricao;
         this.data_lancamento = data_lancamento;
@@ -18,9 +22,14 @@ public class Filme {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getNome() {
         return nome;
     }
@@ -28,6 +37,7 @@ public class Filme {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public String getDescricao() {
         return descricao;
     }
@@ -35,6 +45,7 @@ public class Filme {
     public void setData_lancamento(String data_lancamento) {
         this.data_lancamento = data_lancamento;
     }
+
     public String getData_lancamento() {
         return data_lancamento;
     }
@@ -42,6 +53,7 @@ public class Filme {
     public void setOrcamento(Double orcamento) {
         this.orcamento = orcamento;
     }
+
     public Double getOrcamento() {
         return orcamento;
     }
@@ -49,6 +61,7 @@ public class Filme {
     public void setAtores(List<Ator> atores) {
         this.atores = atores;
     }
+
     public List<Ator> getAtores() {
         return atores;
     }
@@ -56,15 +69,13 @@ public class Filme {
     public List<Diretor> getDiretores() {
         return diretores;
     }
-    
-    //Adiciona um diretor à lista existente de diretores do filme - Confirmar
-    //public void adicionarDiretor(Diretor diretor) {
-    //    diretores.add(diretor);
-    //}
 
-    //// Método para definir a lista completa de diretores do filme
     public void setDiretores(List<Diretor> diretores) {
         this.diretores = diretores;
+    }
+
+    public static synchronized long gerarNovoId() {
+        return ++ultimoId;
     }
 
 }

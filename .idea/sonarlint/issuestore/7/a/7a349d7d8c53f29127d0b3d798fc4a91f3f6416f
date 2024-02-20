@@ -1,0 +1,11 @@
+
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î¾ô
+k	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­®ı°úÿÿÿÿ
+0
+java:S1220""Move this file to a named package.
+t	java:S116"ZRename this field "data_lancamento" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•äüÿÿÿÿ
+a
+java:S1659"FDeclare "descricao" and all following declarations on a separate line.(•äüÿÿÿÿ
+h	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­®ı°úÿÿÿÿ
+c	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûİËŒ
+V	java:S125="<This block of commented-out lines of code should be removed.(ññ£ÿÿÿÿÿ
