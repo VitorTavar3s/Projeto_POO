@@ -19,30 +19,63 @@ public class Main {
 
         do{
             System.out.println(">>>> Menu <<<<");
-            System.out.println("1 - Cadastrar Filme");
+            System.out.println("1 - Cadastros");
+            System.out.println("2 - Buscas");
+            System.out.println("3 - Sair");
+            System.out.println();
+            opcao = scanner.nextInt();
+
+            switch (opcao){
+                case 1 -> cadastros();
+                case 2 -> buscas();
+                case 3 -> System.out.println("Saindo...");
+                default -> System.out.println("Opção " + opcao + " é inválida, Escolha 1, 2, ou 3!");
+            }
+        } while (opcao != 3);
+    }
+
+    public static void cadastros(){
+        int opcao;
+        do{
+            System.out.println(">>>> Cadastros <<<<");
+            System.out.println("1 - Cadastrar Fime");
             System.out.println("2 - Cadastrar Ator");
             System.out.println("3 - Cadastrar Diretor");
-            System.out.println("4 - Buscar Filme");
-            System.out.println("5 - Buscar Diretor");
-            System.out.println("6 - Buscar Ator");
-            System.out.println("7 - Sair");
-            System.out.println();
+            System.out.println("4 - Voltar Para Menu Principal");
+            System.out.println("Digite a sua opção: ");
             opcao = scanner.nextInt();
 
             switch (opcao){
                 case 1 -> cadastrarFilme();
                 case 2 -> cadastrarAtor();
                 case 3 -> cadastrarDiretor();
-                case 4 -> buscarFilme();
-                case 5 -> buscarDiretor();
-                case 6 -> buscarAtor();
-                case 7 -> System.out.println("Saindo...");
-                default -> System.out.println("Digite uma opção válida!");
+                case 4 -> System.out.println("Voltando para o menu principal!");
+                default -> System.out.println("Opção " + opcao + " é inválida, Escolha 1, 2, 3 ou 4!");
             }
-        } while (opcao != 7);
-
-
+        } while (opcao != 4);
     }
+
+    public static void buscas(){
+        int opcao;
+        do{
+            System.out.println(">>>> Buscas <<<<");
+            System.out.println("1 - Buscar Fime");
+            System.out.println("2 - Buscar Ator");
+            System.out.println("3 - Buscar Diretor");
+            System.out.println("4 - Voltar Para Menu Principal");
+            System.out.println("Digite a sua opção: ");
+            opcao = scanner.nextInt();
+
+            switch (opcao){
+                case 1 -> buscarFilme();
+                case 2 -> buscarAtor();
+                case 3 -> buscarDiretor();
+                case 4 -> System.out.println("Voltando para o menu principal!");
+                default -> System.out.println("Opção " + opcao + " é inválida, Escolha 1, 2, 3 ou 4!");
+            }
+        } while (opcao != 4);
+    }
+
 
     public static void cadastrarFilme(){
         scanner.nextLine();
