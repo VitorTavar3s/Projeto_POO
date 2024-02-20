@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52dd100f-cfbf-458a-ad21-ff56d8c447dd" name="Changes" comment="implementando o metodo buscar filme e melhorando a sintaxe do codigo">
+    <list default="true" id="52dd100f-cfbf-458a-ad21-ff56d8c447dd" name="Changes" comment="Adicionado id nas classes: pessoa e filme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projeto POO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto POO.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Diretor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Diretor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pessoa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,27 +32,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pedro/Documents/ada/Programacao-Orientada-Objetos-1/Projeto_POO&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/vitor/Desktop/Curso Java Santander Coders/POO I/Projeto POO/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/pedro/Documents/ada/Programacao-Orientada-Objetos-1/Projeto_POO",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/vitor/Desktop/Curso Java Santander Coders/POO I/Projeto POO/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -93,7 +89,7 @@
       <workItem from="1708381364802" duration="37000" />
       <workItem from="1708386194309" duration="2189000" />
       <workItem from="1708390101688" duration="1503000" />
-      <workItem from="1708431000458" duration="5973000" />
+      <workItem from="1708431000458" duration="8078000" />
     </task>
     <task id="LOCAL-00001" summary="implementando o metodo buscar filme e melhorando a sintaxe do codigo">
       <option name="closed" value="true" />
@@ -119,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708307471927</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adicionado id nas classes: pessoa e filme">
+      <option name="closed" value="true" />
+      <created>1708438447551</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708438447551</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +132,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implementando o metodo buscar filme e melhorando a sintaxe do codigo" />
     <MESSAGE value="alterando metodos cadastrarDiretor e cadastrarAtor" />
-    <option name="LAST_COMMIT_MESSAGE" value="alterando metodos cadastrarDiretor e cadastrarAtor" />
+    <MESSAGE value="Adicionado id nas classes: pessoa e filme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionado id nas classes: pessoa e filme" />
   </component>
 </project>
