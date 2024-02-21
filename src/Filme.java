@@ -6,16 +6,16 @@ public class Filme {
     private static long ultimoId = 0;
 
     private Long id;
-    private String nome,descricao,data_lancamento;
+    private String nome,descricao, dataLancamento;
     private Double orcamento;
     private List<Ator> atores;
     private List<Diretor> diretores;
 
-    Filme(String nome,String descricao,String data_lancamento,Double orcamento){
+    Filme(String nome, String descricao, String dataLancamento, Double orcamento){
         this.id = gerarNovoId();
         this.nome = nome;
         this.descricao = descricao;
-        this.data_lancamento = data_lancamento;
+        this.dataLancamento = dataLancamento;
         this.orcamento =  orcamento;
         this.diretores = new ArrayList<>();
         this.atores = new ArrayList<>();
@@ -42,12 +42,12 @@ public class Filme {
         return descricao;
     }
 
-    public void setData_lancamento(String data_lancamento) {
-        this.data_lancamento = data_lancamento;
+    public void setDataLancamento(String dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
 
-    public String getData_lancamento() {
-        return data_lancamento;
+    public String getDataLancamento() {
+        return dataLancamento;
     }
 
     public void setOrcamento(Double orcamento) {
@@ -72,6 +72,19 @@ public class Filme {
 
     public void setDiretores(List<Diretor> diretores) {
         this.diretores = diretores;
+    }
+
+    @Override
+    public String toString() {
+        return "Filme{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", dataLancamento='" + dataLancamento + '\'' +
+                ", orcamento=" + orcamento +
+                ", atores=" + atores +
+                ", diretores=" + diretores +
+                '}';
     }
 
     public static synchronized long gerarNovoId() {

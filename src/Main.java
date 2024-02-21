@@ -241,20 +241,59 @@ public class Main {
     }
 
     public static void buscarFilme(){
-        scanner.nextLine(); 
+        scanner.nextLine();
 
+        if (filmes.isEmpty()){
+            System.out.println("Nenhum filme cadastrado!");
+            System.out.println();
+        }else {
+            int opcao;
+            do {
+                System.out.println(">>>> Buscar Filme <<<<");
+                System.out.println("1 - Buscar Todos os Filme");
+                System.out.println("2 - Buscar Filme Pelo Nome");
+                System.out.println("3 - Voltar Para Menu de Buscas");
+                System.out.println("Digite a sua opção: ");
+                opcao = scanner.nextInt();
+
+                switch (opcao){
+                    case 1 -> buscarTodosOsFimes();
+                    case 2 -> buscarFilmePorNome();
+                    case 3 -> System.out.println("Voltando para o menu de buscas");
+                    default -> System.out.println("Opção " + opcao + " é inválida, Escolha 1, 2, ou 3!");
+                }
+            }while (opcao != 3);
+        }
+    }
+
+    public static void buscarTodosOsFimes(){
+        for (Filme filme : filmes){
+            System.out.println("Nome: " + filme.getNome());
+            System.out.println("Descrição: " + filme.getDescricao());
+            System.out.println("Data Lançamento: " + filme.getDataLancamento());
+            System.out.println("Atores: ");
+            for (Ator ator : filme.getAtores()){
+                System.out.println("- " + ator.nome);
+            }
+            System.out.println("Diretor :");
+            for (Diretor diretor : filme.getDiretores()){
+                System.out.println("- " + diretor.getNome());
+            }
+        }
+    }
+
+    public static void buscarFilmePorNome(){
         System.out.println("Digite o nome do filme que deseja buscar:");
+        scanner.nextLine();
         String nomeFilmeBusca = scanner.nextLine();
-
-        boolean filmeEncontrado = false;
 
         for (Filme filme : filmes) {
             if (nomeFilmeBusca.equalsIgnoreCase(filme.getNome())) {
-                filmeEncontrado = true;
                 System.out.println("Filme encontrado:");
+                System.out.println();
                 System.out.println("Nome: " + filme.getNome());
                 System.out.println("Descrição: " + filme.getDescricao());
-                System.out.println("Data de lançamento: " + filme.getData_lancamento());
+                System.out.println("Data de lançamento: " + filme.getDataLancamento());
                 System.out.println("Orçamento: " + filme.getOrcamento());
                 System.out.println("Atores:");
                 for (Ator ator : filme.getAtores()) {
@@ -265,11 +304,9 @@ public class Main {
                     System.out.println("- " + diretor.getNome());
                 }
                 break;
+            }else {
+                System.out.println(nomeFilmeBusca + " não foi localizado!");
             }
-        }
-
-        if (!filmeEncontrado) {
-            System.out.println("Filme não encontrado.");
         }
     }
 
@@ -312,7 +349,7 @@ public class Main {
             }
         }
         if (!diretorEncontrado) {
-            System.out.println("Diretor não encontrado.");
+            System.out.println("Nenhum diretor encontrado!");
         }
     }
 
@@ -324,5 +361,13 @@ public class Main {
             System.out.println();
         }
     }
-    public static void buscarAtor(){}
+    public static void buscarAtor(){
+        if (atores.isEmpty()) {
+            System.out.println("Nenhum Ator cadastrado!");
+        }
+
+        for (Ator ator : atores){
+            System.out.println("Ator: " + ator.getNome() + " | CPF: " + ator.getCpf());
+        }
+    }
 }
