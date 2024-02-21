@@ -1,11 +1,10 @@
 
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î¾ô
-k	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­®ı°úÿÿÿÿ
-0
-java:S1220""Move this file to a named package.
-t	java:S116"ZRename this field "data_lancamento" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•äüÿÿÿÿ
-a
-java:S1659"FDeclare "descricao" and all following declarations on a separate line.(•äüÿÿÿÿ
-h	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­®ı°úÿÿÿÿ
-c	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûİËŒ
-V	java:S125="<This block of commented-out lines of code should be removed.(ññ£ÿÿÿÿÿ
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î¾ô8Ö±§µÜ1
+r	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­®ı°úÿÿÿÿ8Ö±§µÜ1
+7
+java:S1220""Move this file to a named package.8Ö±§µÜ1
+{	java:S116	"ZRename this field "data_lancamento" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•äüÿÿÿÿ8Û±§µÜ1
+h
+java:S1659	"FDeclare "descricao" and all following declarations on a separate line.(•äüÿÿÿÿ8à±§µÜ1
+o	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­®ı°úÿÿÿÿ8å±§µÜ1
+j	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûİËŒ8å±§µÜ1

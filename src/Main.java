@@ -38,7 +38,7 @@ public class Main {
         int opcao;
         do{
             System.out.println(">>>> Cadastros <<<<");
-            System.out.println("1 - Cadastrar Fime");
+            System.out.println("1 - Cadastrar Filme");
             System.out.println("2 - Cadastrar Ator");
             System.out.println("3 - Cadastrar Diretor");
             System.out.println("4 - Voltar Para Menu Principal");
@@ -59,7 +59,7 @@ public class Main {
         int opcao;
         do{
             System.out.println(">>>> Buscas <<<<");
-            System.out.println("1 - Buscar Fime");
+            System.out.println("1 - Buscar Filme");
             System.out.println("2 - Buscar Ator");
             System.out.println("3 - Buscar Diretor");
             System.out.println("4 - Voltar Para Menu Principal");
@@ -124,11 +124,24 @@ public class Main {
         do{
             System.out.println("Informe o nome do Ator:");
             String nomeAtor = scanner.nextLine();
-            System.out.println("Informe o CPF do Ator:");
-            String cpf = scanner.nextLine();
+
+            boolean existeCpf = false;
+            String cpf;
+            do {
+                System.out.println("Informe o CPF do Ator:");
+                cpf = scanner.nextLine();
+
+                for (Ator ator : atores) {
+                    if (ator.getCpf().equals(cpf)) {
+                        existeCpf = true;
+                        System.out.println("O cpf " + cpf  + " " + " já existe. Por favor, digite outro cpf!");
+                    }else {
+                        existeCpf = false;
+                    }
+                }
+            }while (existeCpf);
 
             boolean filmeEncontrado = false;
-
             do {
 
                 for (Filme filme : filmes){
