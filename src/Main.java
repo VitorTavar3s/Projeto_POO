@@ -94,7 +94,6 @@ public class Main {
 
             Filme filme = new Filme(nome, descricao, data, orcamento);
             filmes.add(filme);
-            filme.setAtores(atores);
             System.out.println("Filme cadastrado com sucesso");
 
             String resposta;
@@ -114,47 +113,49 @@ public class Main {
             scanner.nextLine();
         }
         while (adicionarOutro);
-
     }
 
-    public static void cadastrarAtor(){
+    public static void cadastrarAtor() {
         scanner.nextLine();
         boolean adicionarOutro = true;
 
-        do{
+        do {
             System.out.println("Informe o nome do Ator:");
             String nomeAtor = scanner.nextLine();
 
-            boolean existeCpf = false;
+            boolean existeCpf;
             String cpf;
             do {
                 System.out.println("Informe o CPF do Ator:");
                 cpf = scanner.nextLine();
 
-                for (Ator ator : atores) {
-                    if (ator.getCpf().equals(cpf)) {
-                        existeCpf = true;
-                        System.out.println("O cpf " + cpf  + " " + " já existe. Por favor, digite outro cpf!");
-                    }else {
-                        existeCpf = false;
+                existeCpf = false;
+                for (Filme filme : filmes) {
+                    for (Ator ator : filme.getAtores()) {
+                        if (ator.getCpf().equals(cpf)) {
+                            existeCpf = true;
+                            System.out.println("O CPF " + cpf + " já existe. Por favor, digite outro CPF!");
+                            break;
+                        }
                     }
                 }
-            }while (existeCpf);
+            } while (existeCpf);
 
             boolean filmeEncontrado = false;
             do {
-
-                for (Filme filme : filmes){
-                    System.out.println("id " + filme.getId() + "| "  + filme.getNome());
+                for (Filme filme : filmes) {
+                    System.out.println("ID " + filme.getId() + "| " + filme.getNome());
                 }
 
-                System.out.println("Digite o id do filme onde o ator se apresenta:");
+                System.out.println("Digite o ID do filme onde o ator se apresenta:");
                 Long idFilme = scanner.nextLong();
 
                 for (Filme filme : filmes) {
                     if (idFilme.equals(filme.getId())) {
                         Ator ator = new Ator(nomeAtor, cpf);
-                        atores.add(ator);
+                        List<Ator> atorList = filme.getAtores();
+                        atorList.add(ator);
+                        filme.setAtores(atorList);
                         filmeEncontrado = true;
                         System.out.println("Ator cadastrado com sucesso!");
                         break;
@@ -162,9 +163,9 @@ public class Main {
                 }
 
                 if (!filmeEncontrado) {
-                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id valido:");
+                    System.out.println("Filme com ID " + idFilme + " não encontrado! Por favor, informe um ID válido:");
                 }
-            }while (!filmeEncontrado);
+            } while (!filmeEncontrado);
 
             String resposta;
             do {
@@ -175,7 +176,7 @@ public class Main {
                 if (!Objects.equals(resposta, "s") && !Objects.equals(resposta, "n")) {
                     System.out.println("Opção incorreta, digite 'S' para SIM e 'N' para NÃO!");
                 }
-            }while (!Objects.equals(resposta, "s") && !Objects.equals(resposta, "n"));
+            } while (!Objects.equals(resposta, "s") && !Objects.equals(resposta, "n"));
 
             if (resposta.equalsIgnoreCase("n")) {
                 adicionarOutro = false;
@@ -183,22 +184,21 @@ public class Main {
 
             scanner.nextLine();
 
-        }while (adicionarOutro);
+        } while (adicionarOutro);
     }
 
     public static void cadastrarDiretor() {
-        scanner.nextLine();
         boolean adicionarOutro = true;
 
         do {
+            scanner.nextLine();
             System.out.println("Informe o nome do Diretor:");
             String nomeDiretor = scanner.nextLine();
             System.out.println("Informe a área do Diretor:");
             String area = scanner.nextLine();
 
-            boolean filmeEncontrado;
+            boolean filmeEncontrado = false;
             do {
-                filmeEncontrado = false;
                 for (Filme filme : filmes){
                     System.out.println("id " + filme.getId() + "| "  + filme.getNome());
                 }
@@ -208,17 +208,16 @@ public class Main {
                 for (Filme filme : filmes) {
                     if (idFilme.equals(filme.getId())) {
                         Diretor diretor = new Diretor(nomeDiretor, area);
-                        diretores.addAll(filme.getDiretores());
-                        diretores.add(diretor);
-                        filme.setDiretores(diretores);
+                        List<Diretor> diretorList = filme.getDiretores();
+                        diretorList.add(diretor);
+                        filme.setDiretores(diretorList);
                         filmeEncontrado = true;
                         System.out.println("Diretor cadastrado com sucesso!");
                         break;
                     }
-
-                    if (!filmeEncontrado) {
-                        System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id valido:");
-                    }
+                }
+                if (!filmeEncontrado) {
+                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id valido:");
                 }
 
             }while (!filmeEncontrado);
@@ -250,19 +249,49 @@ public class Main {
             int opcao;
             do {
                 System.out.println(">>>> Buscar Filme <<<<");
-                System.out.println("1 - Buscar Todos os Filme");
-                System.out.println("2 - Buscar Filme Pelo Nome");
+                System.out.println("1 - Buscar Filme Pelo Nome");
+                System.out.println("2 - Buscar Todos os Filme");
                 System.out.println("3 - Voltar Para Menu de Buscas");
                 System.out.println("Digite a sua opção: ");
                 opcao = scanner.nextInt();
 
                 switch (opcao){
-                    case 1 -> buscarTodosOsFimes();
-                    case 2 -> buscarFilmePorNome();
+                    case 1 -> buscarFilmePorNome();
+                    case 2 -> buscarTodosOsFimes();
                     case 3 -> System.out.println("Voltando para o menu de buscas");
                     default -> System.out.println("Opção " + opcao + " é inválida, Escolha 1, 2, ou 3!");
                 }
             }while (opcao != 3);
+        }
+    }
+
+    public static void buscarFilmePorNome(){
+        System.out.println("Digite o nome do filme que deseja buscar:");
+        scanner.nextLine();
+        String nomeFilmeBusca = scanner.nextLine();
+
+        boolean existeFilme = false;
+        for (Filme filme : filmes) {
+            if (nomeFilmeBusca.equalsIgnoreCase(filme.getNome())) {
+                existeFilme = true;
+                System.out.println("Filme encontrado:");
+                System.out.println();
+                System.out.println("Nome: " + filme.getNome());
+                System.out.println("Descrição: " + filme.getDescricao());
+                System.out.println("Data de lançamento: " + filme.getDataLancamento());
+                System.out.println("Orçamento: " + filme.getOrcamento());
+                System.out.println("Atores:");
+                for (Ator ator : filme.getAtores()) {
+                    System.out.println("- " + ator.nome);
+                }
+                System.out.println("Diretores:");
+                for (Diretor diretor : filme.getDiretores()) {
+                    System.out.println("- " + diretor.getNome());
+                }
+            }
+        }
+        if (!existeFilme){
+            System.out.println(nomeFilmeBusca + " não foi localizado!");
         }
     }
 
@@ -282,30 +311,63 @@ public class Main {
         }
     }
 
-    public static void buscarFilmePorNome(){
-        System.out.println("Digite o nome do filme que deseja buscar:");
-        scanner.nextLine();
-        String nomeFilmeBusca = scanner.nextLine();
-
+    public static void buscarAtor(){
         for (Filme filme : filmes) {
-            if (nomeFilmeBusca.equalsIgnoreCase(filme.getNome())) {
-                System.out.println("Filme encontrado:");
+            if (filme.getAtores().isEmpty()) {
+                System.out.println("Nenhum Ator cadastrado!");
                 System.out.println();
-                System.out.println("Nome: " + filme.getNome());
-                System.out.println("Descrição: " + filme.getDescricao());
-                System.out.println("Data de lançamento: " + filme.getDataLancamento());
-                System.out.println("Orçamento: " + filme.getOrcamento());
-                System.out.println("Atores:");
-                for (Ator ator : filme.getAtores()) {
-                    System.out.println("- " + ator.nome);
+            } else {
+                int opcao;
+                do {
+                    System.out.println(">>>> Buscar Ator <<<<");
+                    System.out.println("1 - Buscar Atores de Um Filme");
+                    System.out.println("2 - Buscar Todos os Atores");
+                    System.out.println("3 - Voltar Para o Menu de Buscas");
+                    System.out.println("Digite a sua opção: ");
+                    opcao = scanner.nextInt();
+
+                    switch (opcao) {
+                        case 1 -> buscarAtoresPorFilme();
+                        case 2 -> buscarTodosAtores();
+                        case 3 -> System.out.println("Voltando para o menu de buscas");
+                        default -> System.out.println("Opção " + opcao + " é inválida, Escolha 1, 2, ou 3!");
+                    }
+                } while (opcao != 3);
+            }
+        }
+    }
+
+    public static void buscarAtoresPorFilme(){
+        for (Filme filme : filmes){
+            System.out.println("id " + filme.getId() + "| "  + filme.getNome());
+        }
+
+        Long idFilme;
+        boolean existeFilme = false;
+        do {
+            System.out.println("Informe o id do filme para obter os atores!");
+            idFilme = scanner.nextLong();
+
+            for (Filme filme : filmes){
+                if (idFilme.equals(filme.getId())){
+                    existeFilme = true;
+                    for (Ator ator : filme.getAtores()){
+                        System.out.println("Ator: " + ator.getNome() + " | CPF: " + ator.getCpf());
+                    }
+                    break;
                 }
-                System.out.println("Diretores:");
-                for (Diretor diretor : filme.getDiretores()) {
-                    System.out.println("- " + diretor.getNome());
+
+                if(!existeFilme){
+                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id valido:");
                 }
-                break;
-            }else {
-                System.out.println(nomeFilmeBusca + " não foi localizado!");
+            }
+        }while (!existeFilme);
+    }
+
+    public static void buscarTodosAtores(){
+        for (Filme filme : filmes) {
+            for (Ator ator : filme.getAtores()) {
+                System.out.println("Ator: " + ator.getNome() + " | CPF: " + ator.getCpf());
             }
         }
     }
@@ -313,14 +375,14 @@ public class Main {
     public static void buscarDiretor() {
         if (diretores.isEmpty()) {
             System.out.println("Nenhum diretor cadastrado.");
-            return;
+            System.out.println();
         }
 
         System.out.println("Escolha uma opção:");
         System.out.println("1 -> Buscar diretor específico");
         System.out.println("2 -> Exibir todos os diretores cadastrados");
         int opcao = scanner.nextInt();
-        scanner.nextLine(); // Limpa o buffer
+        scanner.nextLine();
 
         switch (opcao) {
             case 1:
@@ -359,15 +421,6 @@ public class Main {
             System.out.println("Nome: " + diretor.getNome());
             System.out.println("Área: " + diretor.getArea());
             System.out.println();
-        }
-    }
-    public static void buscarAtor(){
-        if (atores.isEmpty()) {
-            System.out.println("Nenhum Ator cadastrado!");
-        }
-
-        for (Ator ator : atores){
-            System.out.println("Ator: " + ator.getNome() + " | CPF: " + ator.getCpf());
         }
     }
 }

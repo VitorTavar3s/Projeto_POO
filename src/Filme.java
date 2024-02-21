@@ -6,10 +6,10 @@ public class Filme {
     private static long ultimoId = 0;
 
     private Long id;
-    private String nome,descricao, dataLancamento;
+    private String nome, descricao, dataLancamento;
     private Double orcamento;
-    private List<Ator> atores;
-    private List<Diretor> diretores;
+    private List<Ator> atores = new ArrayList<>();
+    private List<Diretor> diretores = new ArrayList<>();
 
     Filme(String nome, String descricao, String dataLancamento, Double orcamento){
         this.id = gerarNovoId();
@@ -17,8 +17,6 @@ public class Filme {
         this.descricao = descricao;
         this.dataLancamento = dataLancamento;
         this.orcamento =  orcamento;
-        this.diretores = new ArrayList<>();
-        this.atores = new ArrayList<>();
     }
 
 
