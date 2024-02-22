@@ -213,7 +213,7 @@ public class Main {
                     }
                 }
                 if (!filmeEncontrado) {
-                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id valido:");
+                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id válido:");
                 }
 
             }while (!filmeEncontrado);
