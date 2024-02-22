@@ -9,10 +9,6 @@ public class Main {
 
         static List<Filme> filmes = new ArrayList<>();
 
-        static List<Ator> atores = new ArrayList<>();
-
-        static List<Diretor> diretores = new ArrayList<>();
-
     public static void main(String[] args) {
 
         int opcao;
@@ -352,7 +348,7 @@ public class Main {
                 if (idFilme.equals(filme.getId())){
                     existeFilme = true;
                     for (Ator ator : filme.getAtores()){
-                        System.out.println("Ator: " + ator.getNome() + " | CPF: " + ator.getCpf());
+                        System.out.println("ID: " + ator.getId() + " | Ator: " + ator.getNome() + " | CPF: " + ator.getCpf()  + " | Filme: " + filme.getNome());
                     }
                     break;
                 }
@@ -367,60 +363,70 @@ public class Main {
     public static void buscarTodosAtores(){
         for (Filme filme : filmes) {
             for (Ator ator : filme.getAtores()) {
-                System.out.println("Ator: " + ator.getNome() + " | CPF: " + ator.getCpf());
+                System.out.println("ID: " + ator.getId() +  " | Ator: " + ator.getNome() + " | CPF: " + ator.getCpf()  + " | Filme: " + filme.getNome());
             }
         }
     }
 
     public static void buscarDiretor() {
-        if (diretores.isEmpty()) {
-            System.out.println("Nenhum diretor cadastrado.");
-            System.out.println();
-        }
+        for (Filme filme : filmes) {
+            if (filme.getDiretores().isEmpty()) {
+                System.out.println("Nenhum diretor cadastrado!");
+                System.out.println();
+            } else {
+                int opcao;
+                do {
+                    System.out.println(">>>> Buscar Diretor <<<<");
+                    System.out.println("1 -> Buscar Diretor de Um Filme");
+                    System.out.println("2 -> Buscar Todos Diretores");
+                    System.out.println("3 -> Voltar Para o Menu de Buscas");
+                    System.out.println("Digite a sua opção: ");
+                    opcao = scanner.nextInt();
+                    scanner.nextLine();
 
-        System.out.println("Escolha uma opção:");
-        System.out.println("1 -> Buscar diretor específico");
-        System.out.println("2 -> Exibir todos os diretores cadastrados");
-        int opcao = scanner.nextInt();
-        scanner.nextLine();
-
-        switch (opcao) {
-            case 1:
-                System.out.println("Digite o nome do diretor que deseja buscar:");
-                String nomeDiretor = scanner.nextLine();
-                buscarDiretorEspecifico(nomeDiretor);
-                break;
-            case 2:
-                exibirTodosOsDiretores();
-                break;
-            default:
-                System.out.println("Opção inválida.");
-                break;
-        }
-    }
-
-    private static void buscarDiretorEspecifico(String nomeDiretor) {
-        boolean diretorEncontrado = false;
-        for (Diretor diretor : diretores) {
-            if (diretor.getNome().equalsIgnoreCase(nomeDiretor)) {
-                diretorEncontrado = true;
-                System.out.println("Diretor encontrado:");
-                System.out.println("Nome: " + diretor.getNome());
-                System.out.println("Área: " + diretor.getArea());
-                break;
+                    switch (opcao) {
+                        case 1 -> buscarDiretoresPorFilme();
+                        case 2 -> buscarTodosDiretores();
+                        case 3 -> System.out.println("Voltando para o menu de buscas");
+                        default -> System.out.println("Opção " + opcao + " é inválida, Escolha 1, 2, ou 3!");
+                    }
+                }while (opcao != 3);
             }
         }
-        if (!diretorEncontrado) {
-            System.out.println("Nenhum diretor encontrado!");
-        }
     }
 
-    private static void exibirTodosOsDiretores() {
-        System.out.println("Diretores cadastrados:");
-        for (Diretor diretor : diretores) {
-            System.out.println("Nome: " + diretor.getNome());
-            System.out.println("Área: " + diretor.getArea());
-            System.out.println();
+    private static void buscarDiretoresPorFilme() {
+        for (Filme filme : filmes){
+            System.out.println("id " + filme.getId() + "| "  + filme.getNome());
+        }
+
+        Long idFilme;
+        boolean existeFilme = false;
+        do {
+            System.out.println("Informe o id do filme para obter os diretores!");
+            idFilme = scanner.nextLong();
+
+            for (Filme filme : filmes){
+                if (idFilme.equals(filme.getId())){
+                    existeFilme = true;
+                    for (Diretor diretor : filme.getDiretores()){
+                        System.out.println("ID: " + diretor.getId() +  " | Direto: " + diretor.getNome() + " | Área: " + diretor.getArea()  + " | Filme: " + filme.getNome());
+                    }
+                    break;
+                }
+
+                if(!existeFilme){
+                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id valido:");
+                }
+            }
+        }while (!existeFilme);
+    }
+
+    private static void buscarTodosDiretores() {
+        for (Filme filme : filmes) {
+            for (Diretor diretor : filme.getDiretores()) {
+                System.out.println("ID: " + diretor.getId() + " | Diretor: " + diretor.getNome() + " | Área: " + diretor.getArea() + " | Filme: " + filme.getNome());
+            }
         }
     }
 }

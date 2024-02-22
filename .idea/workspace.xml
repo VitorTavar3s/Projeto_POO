@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52dd100f-cfbf-458a-ad21-ff56d8c447dd" name="Changes" comment="Implementado o menu de buscar filme">
+    <list default="true" id="52dd100f-cfbf-458a-ad21-ff56d8c447dd" name="Changes" comment="Finalizado buscar ator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +90,7 @@
       <workItem from="1708386194309" duration="2189000" />
       <workItem from="1708390101688" duration="1503000" />
       <workItem from="1708431000458" duration="19157000" />
-      <workItem from="1708516654248" duration="26980000" />
+      <workItem from="1708516654248" duration="29583000" />
     </task>
     <task id="LOCAL-00001" summary="implementando o metodo buscar filme e melhorando a sintaxe do codigo">
       <option name="closed" value="true" />
@@ -165,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708537247153</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Finalizado buscar ator">
+      <option name="closed" value="true" />
+      <created>1708558505375</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708558505375</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +187,7 @@
     <MESSAGE value="Refatorado e implementado validações ao menu" />
     <MESSAGE value="Implementada validacao para o cpf ser unico" />
     <MESSAGE value="Implementado o menu de buscar filme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementado o menu de buscar filme" />
+    <MESSAGE value="Finalizado buscar ator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado buscar ator" />
   </component>
 </project>
