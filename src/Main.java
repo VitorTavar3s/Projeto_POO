@@ -159,7 +159,8 @@ public class Main {
                 }
 
                 if (!filmeEncontrado) {
-                    System.out.println("Filme com ID " + idFilme + " não encontrado! Por favor, informe um ID válido:");
+                    System.out.println("Filme com ID " + idFilme + " não encontrado! Por favor," +
+                            " informe um ID válido:");
                 }
             } while (!filmeEncontrado);
 
@@ -213,7 +214,8 @@ public class Main {
                     }
                 }
                 if (!filmeEncontrado) {
-                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id válido:");
+                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor," +
+                            " informe um id válido:");
                 }
 
             }while (!filmeEncontrado);
@@ -284,6 +286,7 @@ public class Main {
                 for (Diretor diretor : filme.getDiretores()) {
                     System.out.println("- " + diretor.getNome());
                 }
+                System.out.println();
             }
         }
         if (!existeFilme){
@@ -304,6 +307,7 @@ public class Main {
             for (Diretor diretor : filme.getDiretores()){
                 System.out.println("- " + diretor.getNome());
             }
+            System.out.println();
         }
     }
 
@@ -348,13 +352,16 @@ public class Main {
                 if (idFilme.equals(filme.getId())){
                     existeFilme = true;
                     for (Ator ator : filme.getAtores()){
-                        System.out.println("ID: " + ator.getId() + " | Ator: " + ator.getNome() + " | CPF: " + ator.getCpf()  + " | Filme: " + filme.getNome());
+                        System.out.println("ID: " + ator.getId() + " | Ator: " + ator.getNome() +
+                                " | CPF: " + ator.getCpf()  + " | Filme: " + filme.getNome());
+                        System.out.println();
                     }
                     break;
                 }
 
                 if(!existeFilme){
-                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id valido:");
+                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor," +
+                            " informe um id valido:");
                 }
             }
         }while (!existeFilme);
@@ -363,7 +370,9 @@ public class Main {
     public static void buscarTodosAtores(){
         for (Filme filme : filmes) {
             for (Ator ator : filme.getAtores()) {
-                System.out.println("ID: " + ator.getId() +  " | Ator: " + ator.getNome() + " | CPF: " + ator.getCpf()  + " | Filme: " + filme.getNome());
+                System.out.println("ID: " + ator.getId() +  " | Ator: " + ator.getNome() +
+                        " | CPF: " + ator.getCpf()  + " | Filme: " + filme.getNome());
+                System.out.println();
             }
         }
     }
@@ -410,13 +419,16 @@ public class Main {
                 if (idFilme.equals(filme.getId())){
                     existeFilme = true;
                     for (Diretor diretor : filme.getDiretores()){
-                        System.out.println("ID: " + diretor.getId() +  " | Direto: " + diretor.getNome() + " | Área: " + diretor.getArea()  + " | Filme: " + filme.getNome());
+                        System.out.println("ID: " + diretor.getId() +  " | Direto: " + diretor.getNome() +
+                                " | Área: " + diretor.getArea()  + " | Filme: " + filme.getNome());
+                        System.out.println();
                     }
                     break;
                 }
 
                 if(!existeFilme){
-                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor, informe um id válido:");
+                    System.out.println("Filme com id " + idFilme + " não encontrado! Por favor," +
+                            " informe um id válido:");
                 }
             }
         }while (!existeFilme);
@@ -425,7 +437,9 @@ public class Main {
     private static void buscarTodosDiretores() {
         for (Filme filme : filmes) {
             for (Diretor diretor : filme.getDiretores()) {
-                System.out.println("ID: " + diretor.getId() + " | Diretor: " + diretor.getNome() + " | Área: " + diretor.getArea() + " | Filme: " + filme.getNome());
+                System.out.println("ID: " + diretor.getId() + " | Diretor: " + diretor.getNome() +
+                        " | Área: " + diretor.getArea() + " | Filme: " + filme.getNome());
+                System.out.println();
             }
         }
     }

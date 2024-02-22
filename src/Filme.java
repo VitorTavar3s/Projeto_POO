@@ -24,32 +24,16 @@ public class Filme {
         return id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getNome() {
         return nome;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public String getDescricao() {
         return descricao;
     }
 
-    public void setDataLancamento(String dataLancamento) {
-        this.dataLancamento = dataLancamento;
-    }
-
     public String getDataLancamento() {
         return dataLancamento;
-    }
-
-    public void setOrcamento(Double orcamento) {
-        this.orcamento = orcamento;
     }
 
     public Double getOrcamento() {
